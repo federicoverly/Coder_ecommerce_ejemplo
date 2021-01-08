@@ -1,0 +1,26 @@
+.itemCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20vh;
+}
+
+.itemCount__counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemCount__counter > h3 {
+  margin: 0px 20px;
+}
+
+.itemCount__agregar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 70px;
+}

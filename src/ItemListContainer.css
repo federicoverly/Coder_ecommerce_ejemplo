@@ -1,9 +1,7 @@
-.app {
-  background-color: #a5a58d;
-  height: 100vh;
-  color: #f0efeb;
+.itemListContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
 }

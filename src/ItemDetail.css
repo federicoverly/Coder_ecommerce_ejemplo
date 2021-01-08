@@ -1,0 +1,9 @@
+.itemDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemDetail__counter {
+  margin: 20px;
+}

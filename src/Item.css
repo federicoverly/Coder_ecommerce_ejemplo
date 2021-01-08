@@ -1,0 +1,15 @@
+.MuiCardMedia-img {
+  height: 300px !important;
+}
+
+.item {
+  margin: 20px;
+}
+
+.MuiButton-label > a:visited {
+  color: #3f51b5;
+}
+
+.MuiButton-label > a {
+  text-decoration: none;
+}

@@ -1,0 +1,45 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  color: #cb997e;
+  background-color: #fff1e6;
+  display: flex;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.4;
+}
+
+.navbar__logo > a > img {
+  height: 50px;
+  object-fit: contain;
+}
+
+.navbar__links {
+  display: flex;
+  flex: 0.6;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0px 30px;
+}
+
+.navbar__links > a {
+  text-decoration: none;
+}
+
+.navbar__links > a:visited {
+  color: #cb997e;
+}
+
+.navbar__links > a > p {
+  margin: 0 20px;
+}
+
+.navbar__links > p {
+  margin: 0 20px;
+}
