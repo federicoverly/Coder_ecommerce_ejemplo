@@ -2,6 +2,7 @@ import React from 'react';
 import "./ItemCount.css";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 
 
 function ItemCount({ item, add, substract, agregarAlCarrito, counter, open }) {
@@ -20,9 +21,9 @@ function ItemCount({ item, add, substract, agregarAlCarrito, counter, open }) {
                   <h3>Agregar al <ShoppingCartIcon /> </h3>
                 </Button>
             </div>) : 
-            (<Button variant="contained" color="primary" >
+            (<Link to="/cart"><Button variant="contained" color="primary" >
             <h3>Terminar la compra</h3>
-          </Button>) }
+          </Button></Link>) }
             
         </div>
     )
