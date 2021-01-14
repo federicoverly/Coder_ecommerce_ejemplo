@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 function Item({ id, name, image }) {
     const classes = useStyles();
 
+    // Con los datos que me envía ItemList voy a mostrar el item.
     return (
         <div className="item">
              <Card className={classes.root}>

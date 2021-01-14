@@ -1,27 +1,11 @@
-import React , { useState } from 'react';
+import React from 'react';
 import "./ItemCount.css";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Button } from '@material-ui/core';
 
 
-function ItemCount({ initial, stock }) {
-    const [ counter, setCounter ] = useState(initial)
+function ItemCount({ item, add, substract, agregarAlCarrito, counter, open }) {
 
-    function add(){
-        if (counter < stock ){
-            setCounter(counter+1)
-        }
-    }
-
-    function substract() {
-        if (counter > initial ){
-            setCounter(counter-1)
-        }
-    }
-
-    function agregarAlCarrito() {
-        console.log("Estas agregando " + counter + " al carrito")
-    }
     
     return (
         <div className="itemCount">
@@ -30,11 +14,16 @@ function ItemCount({ initial, stock }) {
                     <h3>{counter}</h3>
                 <Button variant="contained" onClick={add}>+</Button>
             </div>
-            <div className="itemCount__agregar">
-                <Button variant="contained" color="primary" onClick={agregarAlCarrito}>
+            { /* Si open es false, que se muestre Agregar al Carrito, pero si es true, Terminar la compra*/}
+            { !open ? (<div className="itemCount__agregar">
+                <Button variant="contained" color="primary" onClick={ () => agregarAlCarrito(item)}>
                   <h3>Agregar al <ShoppingCartIcon /> </h3>
                 </Button>
-            </div>
+            </div>) : 
+            (<Button variant="contained" color="primary" >
+            <h3>Terminar la compra</h3>
+          </Button>) }
+            
         </div>
     )
 }
