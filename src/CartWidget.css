@@ -1,0 +1,9 @@
+.cartWidget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartWidget > a {
+  text-decoration: none;
+}

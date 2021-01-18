@@ -1,0 +1,26 @@
+.cartItem {
+  display: flex;
+  width: 80%;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.cartItem > div {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+}
+
+.cartItem__title > h3 {
+  width: 90px;
+}
+
+.cartItem__image > img {
+  object-fit: contain;
+  height: 100px;
+  width: 90px;
+}

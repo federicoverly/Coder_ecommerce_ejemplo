@@ -48,7 +48,7 @@ function ItemDetailContainer() {
         const promesa = new Promise((resolve, reject)=>{
         setTimeout(function(){
             // Con esta lógica busco en la lista de productos el que comparta el id con el useParams
-            const i = products.find(product => product.id == id)
+            const i = products.find(product => product.id === parseInt(id))
             resolve(i); 
         }, 2000);
         }

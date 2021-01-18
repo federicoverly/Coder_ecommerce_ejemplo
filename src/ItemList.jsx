@@ -11,7 +11,7 @@ function ItemList( { products }) {
             { /* Por cada producto voy a usar el componente Item */}
 
             { products.map( product => <Item key={product.id} id={product.id} 
-            name={product.nombre} image={product.imagen} />)
+            name={product.name} image={product.image} />)
             }
         </div>
     )

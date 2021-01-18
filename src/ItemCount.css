@@ -24,3 +24,16 @@
   margin-top: 20px;
   width: 70px;
 }
+
+.itemCount__terminar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100px;
+}
+
+.itemCount__terminar > a {
+  text-decoration: none;
+}

@@ -30,6 +30,7 @@
 
 .navbar__links > a {
   text-decoration: none;
+  color: #cb997e;
 }
 
 .navbar__links > a:visited {
@@ -38,8 +39,14 @@
 
 .navbar__links > a > p {
   margin: 0 20px;
+  color: #cb997e;
 }
 
 .navbar__links > p {
   margin: 0 20px;
+}
+
+.navbar__cart > a {
+  text-decoration: none;
+  color: #cb997e;
 }

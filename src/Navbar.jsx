@@ -32,8 +32,9 @@ function Navbar() {
                 <p>CONTACT</p>
 
                 { /* Acá uso el ícono del carrito que importé */}
-
-                <CartWidget />
+                <div className="navbar__cart">
+                  <Link to={"/cart"}><CartWidget /></Link>
+                </div>
             </div>
         </div>
     )

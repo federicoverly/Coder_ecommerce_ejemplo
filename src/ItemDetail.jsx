@@ -14,17 +14,11 @@ const useStyles = makeStyles({
   },
 });
 
-function ItemDetail( { item, name, image, description, stock, initial, price }) {
+function ItemDetail( { item, id, name, image, description, stock, initial, price }) {
     const classes = useStyles();
 
     // Este estado lo voy a usar para ir chequeando la cantidad de productos
     const [ counter, setCounter ] = useState(initial)
-
-    // En este estado voy a guardar la información (producto y cantidad) cuando se cliquea "Agregar al Carrito"
-    const [ cart, setCart ] = useState([])
-
-    // Este estado me va a servir para manejar si debo mostrar el botón "Agregar al carrito" o "terminar compra"
-    const [ open, setOpen ] = useState(false)
 
     // Si el contador es menor que el stock, cuando el usuario hace click agrego 1
     function add(){
@@ -39,19 +33,6 @@ function ItemDetail( { item, name, image, description, stock, initial, price }) 
             setCounter(counter-1)
         }
     }
-
-    // Cuando el usuario agrega al carrito voy a hacer dos cosas
-    function agregarAlCarrito(product) {
-        console.log("Estas agregando " + counter + " al carrito")
-        // Guardo en el estado cart el producto que eligió y la cantidad
-        setCart(...cart, { id: product.id, name: product.name, image: product.image, amount: counter })
-        
-        // Guardo en el estado que open sea true para mostrar "Terminar Compra" en lugar de "Agregar al carrito"
-        setOpen(true)
-    }
-
-
-
 
     return (
         <div className="itemDetail">
@@ -77,7 +58,7 @@ function ItemDetail( { item, name, image, description, stock, initial, price }) 
           <div className="itemDetail__counter">
             {/* Le paso a ItemCount todas las funciones y datos que necesita */}
             <ItemCount initial={initial} stock={stock} add={add} substract={substract}
-            agregarAlCarrito={agregarAlCarrito} item={item} counter={counter} open={open}/>
+            item={item} counter={counter}  id={id}/>
           </div>
         </div>
     )

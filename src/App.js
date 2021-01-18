@@ -7,6 +7,8 @@ import image2 from './image2.png';
 import image3 from './image3.png';
 import ItemDetailContainer from './ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import CartProvider from './CartContext';
+import Cart from './Cart'
 
 // Preparo mi listado de productos. Esto lo podría tener en un archivo aparte también. 
 const products = [{
@@ -20,7 +22,7 @@ const products = [{
   categoryId: "infanteria",
 },{
   id: 2,
-  name: "Arquero",
+  name: "Arquería",
   price: "20",
   image: image2,
   description: "Alto Arquero",
@@ -64,6 +66,10 @@ function App() {
 
   return (
     <div className="app">
+      
+      { /* Envuelvo toda mi app en mi provider para poder tomar los datos en cualquier componente */}
+      <CartProvider>
+
       { /* Toda la app la envuelvo en BrowserRouter */}
       <BrowserRouter>
 
@@ -88,8 +94,15 @@ function App() {
             <ItemDetailContainer />
           </Route>
 
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+
+
       </Switch>
       </BrowserRouter>
+
+      </CartProvider>
     </div>
   );
 }

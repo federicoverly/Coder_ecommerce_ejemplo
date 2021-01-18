@@ -14,7 +14,7 @@ function ItemListContainer({ greeting, products }) {
         // Tomo los productos que me envía App y, si hay un id, filtro todos para agarrar sólo los que
         // tengan el id señalado
         if(id){
-            const category = products.filter(product => product.categoryId == id)
+            const category = products.filter(product => product.categoryId === id)
             setItems(category)
         }
         else{
