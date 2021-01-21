@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './ItemDetailContainer.css';
-import image1 from './image1.png';
-import image2 from './image2.png';
-import image3 from './image3.png';
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
+import { firestore } from './firebase';
 
+/*
 const products = [{
   id: 1,
   name: "Infantería",
@@ -35,14 +34,16 @@ const products = [{
   categoryId: "caballeria",
 }
 ]
+*/
 
 function ItemDetailContainer() {
     // Una lógica muy similar a ItemListContainer. Voy a usar este estado para guardar el item
-    const [ item, setItem ] = useState()
+    // const [ item, setItem ] = useState()
+    const [ fireItem, setFireItem ] = useState()
 
     // el useParams me va a permitir leer la url y tomar el id que está después de items/
     const { id } = useParams()
-
+    /*
     useEffect(() => {
         // Esta promesa en dos segundos me va a devolver 1 solo producto
         const promesa = new Promise((resolve, reject)=>{
@@ -58,21 +59,34 @@ function ItemDetailContainer() {
         promesa.catch(err => console.log("Algo salio mal")) 
 
     },  [id]);
+    */
+
+    useEffect(() => {
+     const db = firestore
+     const collection = db.collection('products') 
+     const item = collection.doc(id)
+
+     item.get()
+      .then( (i) => {
+        setFireItem({ id: i.id, ...i.data()})
+      })
+
+  },  [id]);
 
     return (
         <div className="itemDetailContainer">
            { /* Los datos del item los envío al componente ItemDetail para que los muestre */ }
            
-            { item ?
+            { fireItem ?
             <ItemDetail
-             item={item}
-             id={item.id}
-             name={item.name}     
-             price={item.price}
-             image={item.image}
-             description={item.description}
-             stock={item.stock}
-             initial={item.initial}
+             item={fireItem}
+             id={fireItem.id}
+             name={fireItem.name}     
+             price={fireItem.price}
+             image={fireItem.image}
+             description={fireItem.description}
+             stock={fireItem.stock}
+             initial={fireItem.initial}
              />
              :
              <h2>Loading</h2>}
