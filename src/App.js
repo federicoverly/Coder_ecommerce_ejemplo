@@ -74,14 +74,11 @@ function App() {
       query
         .then((result) => {
           setFireItems(result.docs.map(p => ({id: p.id, ...p.data()})))
-          console.log(fireItems)
         })
         .catch((error) => {
           console.log(error)
         })
   }, [fireItems])
-
-  console.log(fireItems)
 
   return (
     <div className="app">

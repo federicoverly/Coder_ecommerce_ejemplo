@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import './ItemListContainer.css';
 import { useParams } from 'react-router-dom';
+import { firestore } from './firebase';
 
 function ItemListContainer({ greeting, products }) {
     // Voy a usar este estado para guardar los productos que quiero mostrar, sean filtrados o no
@@ -14,12 +15,25 @@ function ItemListContainer({ greeting, products }) {
         // Tomo los productos que me envía App y, si hay un id, filtro todos para agarrar sólo los que
         // tengan el id señalado
         if(id){
+            /*
             const category = products.filter(product => product.categoryId === id)
             setItems(category)
+            */
+
+            const db = firestore
+            const collection = db.collection('products')
+            const query = collection.where('categoryId',"==",id).get()
+            query
+            .then((result) => {
+                setItems(result.docs.map(p => ({id: p.id, ...p.data()})))
+              })
+              .catch((error) => {
+                console.log(error)
+              })
         }
         else{
             setItems(products)
-        }
+        }     
 
     }, [id, products])
 
