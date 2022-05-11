@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import ItemListContainer from './ItemListContainer';
-import Navbar from './Navbar';
-import ItemDetailContainer from './ItemDetailContainer';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import CartProvider from './CartContext';
-import Cart from './Cart';
-import {firestore} from "./firebase"
+import { useState, useEffect } from "react";
+import "./App.css";
+import ItemListContainer from "./ItemListContainer";
+import Navbar from "./Navbar";
+import ItemDetailContainer from "./ItemDetailContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CartProvider from "./CartContext";
+import Cart from "./Cart";
+import { firestore } from "./firebase";
 
-// Preparo mi listado de productos. Esto lo podría tener en un archivo aparte también. 
+// Preparo mi listado de productos. Esto lo podría tener en un archivo aparte también.
 /*
 const products = [{
   id: 1,
@@ -44,7 +44,7 @@ const products = [{
 function App() {
   // Este useState lo voy a usar para guardar el resultado de la promesa
   // const [ items, setItems ] = useState([])
-  const [ fireItems, setFireItems ] = useState([])
+  const [fireItems, setFireItems] = useState([]);
 
   // Con el useEffect me aseguro que la promesa corra cuando se renderea el componente
   /*
@@ -68,59 +68,62 @@ function App() {
 
   // En el useEffect hago el llamado a firebase para obtener y setear los productos
   useEffect(() => {
-      const db = firestore
-      const collection = db.collection('products')
-      const query = collection.get()
-      query
-        .then((result) => {
-          setFireItems(result.docs.map(p => ({id: p.id, ...p.data()})))
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-  }, [fireItems])
+    const db = firestore;
+    const collection = db.collection("products");
+    const query = collection.get();
+    query
+      .then((result) => {
+        setFireItems(result.docs.map((p) => ({ id: p.id, ...p.data() })));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [fireItems]);
 
   return (
     <div className="app">
-      
-      { /* Envuelvo toda mi app en mi provider para poder tomar los datos en cualquier componente */}
+      {/* Envuelvo toda mi app en mi provider para poder tomar los datos en cualquier componente */}
       <CartProvider>
+        {/* Toda la app la envuelvo en BrowserRouter */}
+        <BrowserRouter>
+          {/* Navbar la dejo fuera del Switch porque quiero que siempre esté, sin importar la ruta */}
+          <Navbar />
 
-      { /* Toda la app la envuelvo en BrowserRouter */}
-      <BrowserRouter>
+          <Routes>
+            {/* Importante usar el exact path para no tener problemas */}
 
-        { /* Navbar la dejo fuera del Switch porque quiero que siempre esté, sin importar la ruta */}
-        <Navbar />
+            <Route
+              exact
+              path="/"
+              element={
+                <ItemListContainer
+                  greeting={"Aguante el Age"}
+                  products={fireItems}
+                />
+              }
+            />
 
-        <Switch>
+            {/* Para poder navegar con parámetros necesito usar el ":" */}
 
-          { /* Importante usar el exact path para no tener problemas */}
+            <Route
+              exact
+              path="/category/:id"
+              element={
+                <ItemListContainer
+                  greeting="Aguante el Age"
+                  products={fireItems}
+                />
+              }
+            />
 
-          <Route exact path="/">
-            <ItemListContainer greeting="Aguante el Age" products={fireItems} />
-          </Route>
+            <Route exact path="/item/:id" element={<ItemDetailContainer />} />
 
-          { /* Para poder navegar con parámetros necesito usar el ":" */}
-
-          <Route exact path="/category/:id">
-            <ItemListContainer greeting="Aguante el Age" products={fireItems} />
-          </Route>
-
-          <Route exact path="/item/:id">
-            <ItemDetailContainer />
-          </Route>
-
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
-
-
-      </Switch>
-      </BrowserRouter>
-
+            <Route exact path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
       </CartProvider>
     </div>
   );
 }
 
-export default App
+export default App;
