@@ -24,12 +24,12 @@ You can also take a look at the live project [here](https://coder-ecommerce-ejem
 
 ### Firebase
 
-We have used Firestore for the database, with api calls to obtain the products. The deploy can actually also be done here! Make sure to explore [firebase] (https://firebase.google.com/)
+We have used Firestore for the database, with api calls to obtain the products. The deploy can actually also be done here! Make sure to explore [firebase](https://firebase.google.com/)
 
 ### Material UI
 
-Material UI for the styling of elements, making available the reusability of them while building on the already developed Material UI options. All about [Material] (https://mui.com/)
+Material UI for the styling of elements, making available the reusability of them while building on the already developed Material UI options. All about [Material](https://mui.com/)
 
 ### React-router-dom
 
-This library is used to handle the navigation between different components, even allowing different renders based on the url passed using the useParams hook. [Here] (https://v5.reactrouter.com/web/guides/quick-start) more!
+This library is used to handle the navigation between different components, even allowing different renders based on the url passed using the useParams hook. [Here](https://v5.reactrouter.com/web/guides/quick-start) more!
