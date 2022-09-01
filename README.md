@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# CoderHouse ecommerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Example ecommerce built with React for the CoderHouse React JS training course. It includes all the comments and explanations, but in spanish :D
 
-## Available Scripts
+## Running the app
 
-In the project directory, you can run:
+Donwload the zip or clone the repository. Run
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+to install the dependencies. Once dependencies are installed, run
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm start
+```
 
-### `npm test`
+to start the application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can also take a look at the live project [here](https://coder-ecommerce-ejemplo.vercel.app/)
 
-### `npm run build`
+## Libraries
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Firebase
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We have used Firestore for the database, with api calls to obtain the products. The deploy can actually also be done here! Make sure to explore [firebase] (https://firebase.google.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Material UI
 
-### `npm run eject`
+Material UI for the styling of elements, making available the reusability of them while building on the already developed Material UI options. All about [Material] (https://mui.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### React-router-dom
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This library is used to handle the navigation between different components, even allowing different renders based on the url passed using the useParams hook. [Here] (https://v5.reactrouter.com/web/guides/quick-start) more!
